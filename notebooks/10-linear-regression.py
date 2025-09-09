@@ -29,6 +29,8 @@ import keras
 BATCH_SIZE=10
 EPOCHS = 50
 LEARNING_RATE=0.2
+MODEL_NAME = "linear-regression"
+MODEL_VERSION = "1"
 
 # %% [markdown]
 # # fetch
@@ -56,3 +58,10 @@ history = model.fit(x=feature,
             y=label,
             batch_size=BATCH_SIZE,
             epochs=EPOCHS)
+
+# %% [markdown]
+# # export
+
+    # %%
+    export_path = f'../export/{MODEL_NAME}/{MODEL_VERSION}'
+    model.export(export_path)
